@@ -17,7 +17,7 @@ setup(
     author_email='ew2789@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/botswana-harvard/edc-model-admin',
+    url='https://github.com/clinicedc/edc-model-admin',
     license='GPL license, see LICENSE',
     description='Edc custom django ModelAdmin mixins, tags and templates',
     long_description=README,

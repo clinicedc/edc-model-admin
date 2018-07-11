@@ -1,0 +1,6 @@
+git+https://github.com/clinicedc/edc-base@develop#egg=edc_base
+git+https://github.com/clinicedc/edc-constants@develop#egg=edc-constants
+git+https://github.com/erikvw/django-revision@develop#egg=django_revision
+git+https://github.com/clinicedc/edc-model-fields@develop#egg=edc-model-fields
+git+https://github.com/clinicedc/edc-navbar@develop#egg=edc-navbar
+git+https://github.com/clinicedc/edc-device@develop#egg=edc-device

@@ -26,7 +26,6 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords='django modeladmin edc',
-    #  install_requires=['pandas'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

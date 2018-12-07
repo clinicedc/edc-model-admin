@@ -5,6 +5,13 @@ edc-model-admin
 
 Edc custom django ModelAdmin mixins, tags and templates
 
+
+ModelAdminFormAutoNumberMixin
++++++++++++++++++++++++++++++
+
+Overrides ModelAdmin's `get_form` to insert question numbers and the DB field names.
+
+
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-model-admin.svg
     :target: https://pypi.python.org/pypi/edc-model-admin
     

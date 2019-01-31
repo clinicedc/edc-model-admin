@@ -19,7 +19,7 @@ before_script:
 - flake8 edc_model_admin
 
 script:
-- coverage run --source=edc_model_admin -m tox
+- coverage run -m tox
 
 after_success:
 - coveralls

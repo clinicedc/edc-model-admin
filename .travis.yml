@@ -16,7 +16,7 @@ services:
 
 install:
 - pip install --upgrade pip
-- pip install flake8 coveralls mysqlclient tox
+- pip install flake8 coveralls mysqlclient tox-travis
 - pip install -e .
 - pip install -q -r requirements.txt
 
@@ -25,7 +25,6 @@ before_script:
 - mysql -e 'create database edc character set utf8;'
 
 script:
-- coverage run --source=edc_model_admin setup.py test
-
+- coverage run --source=edc_model_admin -m tox-travis
 after_success:
 - coveralls

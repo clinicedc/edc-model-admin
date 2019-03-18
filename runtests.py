@@ -29,7 +29,22 @@ installed_apps = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'edc_metadata',
+    'django_crypto_fields.apps.AppConfig',
+    'django_revision.apps.AppConfig',
+    'edc_base.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
+    'edc_lab.apps.AppConfig',
+    'edc_metadata_rules.apps.AppConfig',
+    'edc_protocol.apps.AppConfig',
+    'edc_reference.apps.AppConfig',
+    'edc_registration.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
+    'edc_model_admin.apps.EdcAppointmentAppConfig',
+    'edc_model_admin.apps.EdcFacilityAppConfig',
+    'edc_model_admin.apps.EdcMetadataAppConfig',
+    'edc_model_admin.apps.EdcVisitTrackingAppConfig',
     'edc_model_admin.apps.AppConfig',
 ]
 
@@ -38,7 +53,7 @@ DEFAULT_SETTINGS = dict(
     SITE_ID=40,
     ALLOWED_HOSTS=['localhost'],
     # AUTH_USER_MODEL='custom_user.CustomUser',
-    ROOT_URLCONF=f'{app_name}.urls',
+    ROOT_URLCONF=f'{app_name}.tests.urls',
     STATIC_URL='/static/',
     INSTALLED_APPS=installed_apps,
     DATABASES={
@@ -50,6 +65,7 @@ DEFAULT_SETTINGS = dict(
     TEMPLATES=[{
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
+        'DIRS': [join(base_dir, "edc_model_admin", "tests", "templates")],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -66,6 +82,7 @@ DEFAULT_SETTINGS = dict(
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
         'edc_dashboard.middleware.DashboardMiddleware',
+        'edc_subject_dashboard.middleware.DashboardMiddleware',
     ],
 
     LANGUAGE_CODE='en-us',
@@ -73,10 +90,20 @@ DEFAULT_SETTINGS = dict(
     USE_I18N=True,
     USE_L10N=True,
     USE_TZ=True,
+    # DEBUG=False,
 
     APP_NAME=app_name,
-    EDC_BOOTSTRAP=3,
+    COUNTRY='botswana',
+    EDC_BOOTSTRAP=None,
     ETC_DIR=join(base_dir, 'etc'),
+    DASHBOARD_URL_NAMES={
+        'subject_listboard_url': 'edc_subject_dashboard:subject_listboard_url',
+        'subject_dashboard_url': 'edc_model_admin:subject_dashboard_url',
+    },
+    DASHBOARD_BASE_TEMPLATES={
+        'subject_dashboard_template': os.path.join(base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},
+    # KEY_PATH=os.path.join(base_dir, 'etc'),
+    # AUTO_CREATE_KEYS=True,
 
     DEFAULT_FILE_STORAGE='inmemorystorage.InMemoryStorage',
     MIGRATION_MODULES=DisableMigrations(),

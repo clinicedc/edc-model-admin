@@ -11,7 +11,8 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 with open(os.path.join(os.path.dirname(__file__), 'VERSION')) as f:
     VERSION = f.read()
 
-tests_require = ["edc_model"]
+tests_require = ["django-webtest", "edc-model", "edc-appointment",
+                 "edc_timepoint", "edc_visit_schedule", "edc_subject_dashboard"]
 with open(join(dirname(abspath(__file__)), 'requirements.txt')) as f:
     for line in f:
         tests_require.append(line.strip())
@@ -32,7 +33,12 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords='django modeladmin edc',
-    install_requires=['edc-utils', 'edc-base'],
+    install_requires=[
+        'edc-utils',
+        'edc-base',
+        'edc_metadata',
+        'edc_dashboard',
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

@@ -31,6 +31,8 @@ installed_apps = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
+    'edc_base.apps.AppConfig',
+    'edc_device.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
@@ -88,7 +90,7 @@ DEFAULT_SETTINGS = dict(
     USE_I18N=True,
     USE_L10N=True,
     USE_TZ=True,
-    DEBUG=False,
+    # DEBUG=False,
 
     APP_NAME=app_name,
     COUNTRY='botswana',
@@ -100,8 +102,8 @@ DEFAULT_SETTINGS = dict(
     },
     DASHBOARD_BASE_TEMPLATES={
         'subject_dashboard_template': os.path.join(base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},
-    KEY_PATH=os.path.join(base_dir, 'etc'),
-    AUTO_CREATE_KEYS=False,
+    # KEY_PATH=os.path.join(base_dir, 'etc'),
+    # AUTO_CREATE_KEYS=True,
 
     DEFAULT_FILE_STORAGE='inmemorystorage.InMemoryStorage',
     MIGRATION_MODULES=DisableMigrations(),

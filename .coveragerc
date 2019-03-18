@@ -1,13 +1,4 @@
 [run]
-omit =
-    */wsgi.py
-    setup.py
-    manage.py
-    */config_utils/*
-    */navbars.py
-    */migrations/*
-    */mommy_*
-    venv/*
-    runtests.py
-    .tox/*
-    .eggs/*
+include = edc_model_admin/*
+omit = edc_model_admin/tests/*,edc_model_admin/migrations/*
+branch = 1

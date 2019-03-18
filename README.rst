@@ -1,4 +1,4 @@
-|pypi| |travis| |coverage|
+|pypi| |travis| |codecov| |downloads|
 
 edc-model-admin
 ---------------
@@ -18,5 +18,8 @@ Overrides ModelAdmin's `get_form` to insert question numbers and the DB field na
 .. |travis| image:: https://travis-ci.org/clinicedc/edc-model-admin.svg?branch=develop
     :target: https://travis-ci.org/clinicedc/edc-model-admin
     
-.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-model-admin/badge.svg?branch=develop
-    :target: https://coveralls.io/github/clinicedc/edc-model-admin?branch=develop
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-model-admin/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-model-admin
+
+.. |downloads| image:: https://pepy.tech/badge/edc-model-admin
+   :target: https://pepy.tech/project/edc-model-admin

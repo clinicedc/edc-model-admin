@@ -53,7 +53,36 @@ Redirects the admin form on save to a view other than the default ``changelist``
 	    def post_url_on_delete_kwargs(self, request, obj):
 	        return {'subject_identifier': obj.subject_identifier}
 
+You can also store url names in the request object if used together with the Middleware from ``edc_dashboard`` and ``edc_subject_dashboard``.
+This is useful if you do not know the namespace until deployment.
 
+For example, add to settings:
+
+.. code-block:: python
+
+    MIDDLEWARE=[
+    	...,
+        'edc_dashboard.middleware.DashboardMiddleware',
+        'edc_subject_dashboard.middleware.DashboardMiddleware',
+    ],
+
+    DASHBOARD_URL_NAMES={
+        'subject_dashboard_url': 'dashboard_app:subject_dashboard_url',
+    },
+
+and then declare the model admin class:
+
+.. code-block:: python
+
+	@admin.register(CrfFive)
+	class CrfFiveAdmin(ModelAdminRedirectOnDeleteMixin, admin.ModelAdmin):
+
+	    post_url_on_delete_name = "subject_dashboard_url"
+
+	    def post_url_on_delete_kwargs(self, request, obj):
+	        return {'subject_identifier': obj.subject_identifier}
+
+``ModelAdminRedirectOnDeleteMixin`` will attempt to get the urlname from the request object using ``post_url_on_delete_name`` as a dictionary key.
 
 
 

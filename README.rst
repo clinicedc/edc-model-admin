@@ -15,7 +15,7 @@ Overrides ModelAdmin's `get_form` to insert question numbers and the DB field na
 ModelAdminNextUrlRedirectMixin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Redirects to the next CRF or Requisition listed in an edc visit schedule if "[Save and Next]"
+Skips the ``changelist`` and redirects to the next CRF or Requisition listed in an edc visit schedule if "[Save and Next]"
 is clicked instead of "[SAVE]"
 
 .. code-block:: python

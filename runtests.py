@@ -29,6 +29,7 @@ installed_apps = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_extensions',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
     'edc_base.apps.AppConfig',
@@ -90,18 +91,18 @@ DEFAULT_SETTINGS = dict(
     USE_I18N=True,
     USE_L10N=True,
     USE_TZ=True,
-    # DEBUG=False,
 
     APP_NAME=app_name,
     COUNTRY='botswana',
     EDC_BOOTSTRAP=None,
     ETC_DIR=join(base_dir, 'etc'),
+
     DASHBOARD_URL_NAMES={
-        'subject_listboard_url': 'edc_subject_dashboard:subject_listboard_url',
-        'subject_dashboard_url': 'edc_model_admin:subject_dashboard_url',
+        'subject_dashboard_url': 'dashboard_app:subject_dashboard_url',
     },
     DASHBOARD_BASE_TEMPLATES={
         'subject_dashboard_template': os.path.join(base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},
+    # DEBUG=False,
     # KEY_PATH=os.path.join(base_dir, 'etc'),
     # AUTO_CREATE_KEYS=True,
 
@@ -109,6 +110,16 @@ DEFAULT_SETTINGS = dict(
     MIGRATION_MODULES=DisableMigrations(),
     PASSWORD_HASHERS=('django.contrib.auth.hashers.MD5PasswordHasher', ),
 )
+
+# update settings if running runtests directly from the command line
+if __file__ == sys.argv[0]:
+    key_path = os.path.join(base_dir, 'etc')
+    DEFAULT_SETTINGS.update(
+        DEBUG=False,
+        KEY_PATH=key_path,
+        AUTO_CREATE_KEYS=False)
+    if len(os.listdir(key_path)) == 0:
+        DEFAULT_SETTINGS.update(AUTO_CREATE_KEYS=True)
 
 if os.environ.get("TRAVIS"):
     DEFAULT_SETTINGS.update(

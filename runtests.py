@@ -97,6 +97,8 @@ DEFAULT_SETTINGS = dict(
     EDC_BOOTSTRAP=None,
     ETC_DIR=join(base_dir, 'etc'),
 
+    EMAIL_CONTACTS={},
+
     DASHBOARD_URL_NAMES={
         'subject_dashboard_url': 'dashboard_app:subject_dashboard_url',
     },

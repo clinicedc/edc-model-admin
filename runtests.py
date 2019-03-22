@@ -8,7 +8,6 @@ from django.conf import settings
 from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
 from os.path import abspath, dirname
-from pprint import pprint
 
 
 app_name = 'edc_model_admin'
@@ -51,12 +50,11 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'subject_dashboard_url': 'dashboard_app:subject_dashboard_url',
     },
     DASHBOARD_BASE_TEMPLATES={
-        'subject_dashboard_template': os.path.join(base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},
+        'subject_dashboard_template': os.path.join(
+            base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},
     use_test_urls=True,
     add_dashboard_middleware=True,
 ).settings
-
-pprint(DEFAULT_SETTINGS)
 
 
 def main():

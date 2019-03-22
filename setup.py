@@ -11,8 +11,11 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 with open(os.path.join(os.path.dirname(__file__), 'VERSION')) as f:
     VERSION = f.read()
 
-tests_require = ["django-webtest", "edc-model", "edc-appointment",
-                 "edc_timepoint", "edc_visit_schedule", "edc_subject_dashboard"]
+tests_require = [
+    "django-webtest", "edc-model", "edc-appointment",
+    "edc-timepoint", "edc-visit-schedule",
+    "edc-subject-dashboard",
+    "edc-test-utils"]
 with open(join(dirname(abspath(__file__)), 'requirements.txt')) as f:
     for line in f:
         tests_require.append(line.strip())

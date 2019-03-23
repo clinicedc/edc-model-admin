@@ -16,9 +16,10 @@ base_dir = dirname(abspath(__file__))
 DEFAULT_SETTINGS = DefaultTestSettings(
     calling_file=__file__,
     template_dirs=[os.path.join(
-        base_dir, "edc_model_admin", "tests", "templates")],
+        base_dir, app_name, "tests", "templates")],
     BASE_DIR=base_dir,
     APP_NAME=app_name,
+    ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     INSTALLED_APPS=[
         'django.contrib.admin',
         'django.contrib.auth',
@@ -46,9 +47,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'edc_model_admin.apps.EdcVisitTrackingAppConfig',
         'edc_model_admin.apps.AppConfig',
     ],
-    DASHBOARD_URL_NAMES={
-        'subject_dashboard_url': 'dashboard_app:subject_dashboard_url',
-    },
     DASHBOARD_BASE_TEMPLATES={
         'subject_dashboard_template': os.path.join(
             base_dir, 'edc_model_admin', "tests", 'templates', "dashboard.html")},

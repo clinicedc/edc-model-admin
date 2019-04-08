@@ -1,7 +1,9 @@
+django_crypto_fields
 db.sqlite*
 .settings/
 .pydevproject
 .project
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

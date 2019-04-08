@@ -9,7 +9,6 @@ from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
 from os.path import abspath, dirname
 
-
 app_name = 'edc_model_admin'
 base_dir = dirname(abspath(__file__))
 
@@ -32,7 +31,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'django_extensions',
         'django_crypto_fields.apps.AppConfig',
         'django_revision.apps.AppConfig',
-        'edc_base.apps.AppConfig',
         'edc_consent.apps.AppConfig',
         'edc_dashboard.apps.AppConfig',
         'edc_device.apps.AppConfig',

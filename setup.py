@@ -37,9 +37,10 @@ setup(
     zip_safe=False,
     keywords='django modeladmin edc',
     install_requires=[
+        'django-logentry-admin',
         'edc-utils',
         'edc-base',
-        'edc_metadata',
+        'edc-metadata',
         'edc_dashboard',
     ],
     classifiers=[

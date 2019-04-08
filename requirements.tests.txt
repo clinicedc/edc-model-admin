@@ -1,0 +1,7 @@
+django-webtest
+edc-model
+edc-appointment
+edc-timepoint
+edc-visit-schedule
+edc-subject-dashboard
+edc-test-utils

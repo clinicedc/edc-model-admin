@@ -39,7 +39,6 @@ setup(
     install_requires=[
         'django-logentry-admin',
         'edc-utils',
-        'edc-base',
         'edc-metadata',
         'edc_dashboard',
     ],

@@ -7,13 +7,13 @@ Edc custom django ModelAdmin mixins, tags and templates
 
 
 ModelAdminFormAutoNumberMixin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++
 
 Overrides ModelAdmin's `get_form` to insert question numbers and the DB field names.
 
 
 ModelAdminNextUrlRedirectMixin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++++
 
 Skips the ``changelist`` and redirects to the next CRF or Requisition listed in an edc visit schedule if "[Save and Next]"
 is clicked instead of "[SAVE]"
@@ -40,7 +40,8 @@ See also:: ``edc_visit_schedule``
 
 
 ModelAdminRedirectOnDeleteMixin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++++
+
 Redirects the admin form on save to a view other than the default ``changelist`` if ``post_url_on_delete_name`` is set. 
 
 .. code-block:: python

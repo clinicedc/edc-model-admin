@@ -9,7 +9,7 @@ Edc custom django ModelAdmin mixins, tags and templates
 ModelAdminFormAutoNumberMixin
 +++++++++++++++++++++++++++++
 
-Overrides ModelAdmin's `get_form` to insert question numbers and the DB field names.
+Overrides ModelAdmin's ``get_form`` to insert question numbers and the DB field names.
 
 
 ModelAdminNextUrlRedirectMixin

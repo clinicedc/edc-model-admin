@@ -44,6 +44,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'edc_subject_dashboard.apps.AppConfig',
         'edc_timepoint.apps.AppConfig',
         'edc_visit_schedule.apps.AppConfig',
+        'edc_model_admin.apps.EdcIdentifierAppConfig',
         'edc_model_admin.apps.EdcAppointmentAppConfig',
         'edc_model_admin.apps.EdcFacilityAppConfig',
         'edc_model_admin.apps.EdcMetadataAppConfig',

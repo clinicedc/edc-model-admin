@@ -11,19 +11,6 @@ with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
 with open(os.path.join(os.path.dirname(__file__), "VERSION")) as f:
     VERSION = f.read()
 
-tests_require = [
-    "django-webtest",
-    "edc-model",
-    "edc-appointment",
-    "edc-timepoint",
-    "edc-visit-schedule",
-    "edc-subject-dashboard",
-    "edc-test-utils",
-]
-with open(join(dirname(abspath(__file__)), "requirements.txt")) as f:
-    for line in f:
-        tests_require.append(line.strip())
-
 # allow setup.py to be run from any path
 os.chdir(normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
@@ -40,7 +27,7 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords="django modeladmin edc",
-    install_requires=["django-logentry-admin",],
+    install_requires=["django-logentry-admin"],
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",
@@ -53,6 +40,5 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
     python_requires=">=3.7",
-    tests_require=tests_require,
     test_suite="runtests.main",
 )

@@ -90,8 +90,8 @@ and then declare the model admin class:
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-model-admin.svg
     :target: https://pypi.python.org/pypi/edc-model-admin
     
-.. |travis| image:: https://travis-ci.org/clinicedc/edc-model-admin.svg?branch=develop
-    :target: https://travis-ci.org/clinicedc/edc-model-admin
+.. |travis| image:: https://travis-ci.com/clinicedc/edc-model-admin.svg?branch=develop
+    :target: https://travis-ci.com/clinicedc/edc-model-admin
     
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-model-admin/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-model-admin

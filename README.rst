@@ -1,4 +1,4 @@
-|pypi| |travis| |codecov| |downloads|
+|pypi| |actions| |codecov| |downloads|
 
 edc-model-admin
 ---------------
@@ -42,7 +42,7 @@ See also:: ``edc_visit_schedule``
 ModelAdminRedirectOnDeleteMixin
 +++++++++++++++++++++++++++++++
 
-Redirects the admin form on save to a view other than the default ``changelist`` if ``post_url_on_delete_name`` is set. 
+Redirects the admin form on save to a view other than the default ``changelist`` if ``post_url_on_delete_name`` is set.
 
 .. code-block:: python
 
@@ -89,10 +89,10 @@ and then declare the model admin class:
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-model-admin.svg
     :target: https://pypi.python.org/pypi/edc-model-admin
-    
-.. |travis| image:: https://travis-ci.com/clinicedc/edc-model-admin.svg?branch=develop
-    :target: https://travis-ci.com/clinicedc/edc-model-admin
-    
+
+.. |actions| image:: https://github.com/clinicedc/edc-model-admin/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-model-admin/actions?query=workflow:build
+
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-model-admin/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-model-admin
 

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
-
-from setuptools import setup
-from setuptools import find_packages
 from os.path import abspath, dirname, join, normpath
+
+from setuptools import find_packages, setup
 
 with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
     README = readme.read()
@@ -40,5 +39,4 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
     python_requires=">=3.7",
-    test_suite="runtests.main",
 )

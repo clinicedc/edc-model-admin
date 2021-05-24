@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-from os.path import abspath, dirname, join, normpath
+from os.path import normpath
 
 from setuptools import find_packages, setup
 
@@ -26,7 +26,6 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords="django modeladmin edc",
-    install_requires=["django-logentry-admin"],
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",

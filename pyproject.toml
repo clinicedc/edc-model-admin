@@ -16,7 +16,7 @@ py_version = "39"
 skip = [".tox", ".eggs", "migrations"]
 
 [tool.coverage.run]
-parallel = true
+parallel = false
 branch = true
 source = ["edc_model_admin"]
 
@@ -32,7 +32,7 @@ omit = ["requirements.txt"]
 legacy_tox_ini = """
 [tox]
 envlist =
-    py{39}-dj{32,dev},
+    py{39}-dj{32,40,dev},
     lint
 isolated_build = true
 
@@ -43,6 +43,7 @@ python =
 [gh-actions:env]
 DJANGO =
     3.2: dj32, lint
+    4.0: dj40
     dev: djdev
 
 [testenv]
@@ -52,6 +53,7 @@ deps =
     -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/edc.txt
     -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/third_party_dev.txt
     dj32: Django>=3.2,<3.3
+    dj40: Django>=4.0,<4.1
     djdev: https://github.com/django/django/tarball/main
 
 commands =

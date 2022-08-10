@@ -62,7 +62,7 @@ deps =
     djdev: https://github.com/django/django/tarball/main
 
 commands =
-    pip install -U pip
+    pip install -U pip django_webtest
     pip --version
     pip freeze
     coverage run -a runtests.py

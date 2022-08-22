@@ -7,6 +7,7 @@ from os.path import abspath, dirname
 import django
 from django.conf import settings
 from django.test.runner import DiscoverRunner
+from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings
 
 app_name = "edc_model_admin"
@@ -19,6 +20,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     APP_NAME=app_name,
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     SUBJECT_VISIT_MODEL="edc_model_admin.subjectvisit",
+    EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -30,16 +32,18 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "django_extensions",
         "django_crypto_fields.apps.AppConfig",
         "django_revision.apps.AppConfig",
+        "edc_auth.apps.AppConfig",
         "edc_appointment.apps.AppConfig",
         "edc_consent.apps.AppConfig",
         "edc_crf.apps.AppConfig",
         "edc_dashboard.apps.AppConfig",
         "edc_device.apps.AppConfig",
+        "edc_export.apps.AppConfig",
         "edc_identifier.apps.AppConfig",
         "edc_facility.apps.AppConfig",
         "edc_metadata.apps.AppConfig",
         "edc_lab.apps.AppConfig",
-        "edc_navbar.apps.AppConfig",
+        "edc_notification.apps.AppConfig",
         "edc_offstudy.apps.AppConfig",
         "edc_protocol.apps.AppConfig",
         "edc_randomization.apps.AppConfig",
@@ -51,6 +55,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_visit_schedule.apps.AppConfig",
         "edc_visit_tracking.apps.AppConfig",
         "edc_model_admin.apps.AppConfig",
+        "edc_navbar.apps.AppConfig",
     ],
     DASHBOARD_BASE_TEMPLATES={
         "dashboard_template": os.path.join(
@@ -70,8 +75,9 @@ def main():
         settings.configure(**DEFAULT_SETTINGS)
     django.setup()
     tags = [t.split("=")[1] for t in sys.argv if t.startswith("--tag")]
-    failures = DiscoverRunner(failfast=False, tags=tags).run_tests([f"{app_name}.tests"])
-    sys.exit(failures)
+    failfast = True if [t for t in sys.argv if t == "--failfast"] else False
+    failures = DiscoverRunner(failfast=failfast, tags=tags).run_tests([f"{app_name}.tests"])
+    sys.exit(bool(failures))
 
 
 if __name__ == "__main__":

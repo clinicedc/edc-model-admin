@@ -1,0 +1,6 @@
+0.3.47
+------
+- mixin for hide delete button on condition
+- refactor dashboard button to first check for reversed url
+- show hide history / Audit Trail button
+- add attr for change_form title if different from model verbose_name

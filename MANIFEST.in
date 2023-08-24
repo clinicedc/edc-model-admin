@@ -4,3 +4,4 @@ include *.rst
 include *.txt
 recursive-include edc_model_admin/templates *
 recursive-include edc_model_admin/static *
+include */locale/*/LC_MESSAGES/*.mo

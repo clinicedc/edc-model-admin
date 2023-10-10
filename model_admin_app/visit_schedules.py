@@ -1,17 +1,13 @@
 from dateutil.relativedelta import relativedelta
-from edc_visit_schedule import (
-    Crf,
-    FormsCollection,
-    Requisition,
-    Schedule,
-    Visit,
-    VisitSchedule,
-)
+from edc_visit_schedule.schedule import Schedule
+from edc_visit_schedule.site_visit_schedules import site_visit_schedules
 from edc_visit_schedule.tests import DummyPanel
+from edc_visit_schedule.visit import Crf, FormsCollection, Requisition, Visit
+from edc_visit_schedule.visit_schedule import VisitSchedule
 
 from .lab_profiles import panel_one, panel_two
 
-app_label = "edc_model_admin"
+app_label = "model_admin_app"
 
 
 class MockPanel(DummyPanel):
@@ -27,8 +23,9 @@ crfs0 = FormsCollection(
     Crf(show_order=1, model=f"{app_label}.crfone", required=True),
     Crf(show_order=2, model=f"{app_label}.crftwo", required=True),
     Crf(show_order=3, model=f"{app_label}.crfthree", required=True),
-    # Crf(show_order=4, model=f"{app_label}.crffour", required=True),
-    # Crf(show_order=5, model=f"{app_label}.crffive", required=True),
+    Crf(show_order=4, model=f"{app_label}.crffour", required=True),
+    Crf(show_order=5, model=f"{app_label}.crffive", required=True),
+    Crf(show_order=6, model=f"{app_label}.crfsix", required=True),
 )
 
 crfs1 = FormsCollection(
@@ -119,3 +116,4 @@ visit_schedule = VisitSchedule(
 )
 
 visit_schedule.add_schedule(schedule)
+site_visit_schedules.register(visit_schedule)

@@ -18,8 +18,14 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     template_dirs=[os.path.join(base_dir, app_name, "tests", "templates")],
     BASE_DIR=base_dir,
     APP_NAME=app_name,
+    ROOT_URLCONF="model_admin_app.urls",
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
-    SUBJECT_VISIT_MODEL="edc_model_admin.subjectvisit",
+    SUBJECT_SCREENING_MODEL="model_admin_app.subjectscreening",
+    SUBJECT_CONSENT_MODEL="model_admin_app.subjectconsent",
+    SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
+    SUBJECT_VISIT_MISSED_MODEL="edc_visit_tracking.subjectvisitmissed",
+    SUBJECT_REQUISITION_MODEL="model_admin_app.subjectrequisition",
+    SUBJECT_APP_LABEL="model_admin_app",
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     INSTALLED_APPS=[
         "django.contrib.admin",
@@ -60,6 +66,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_visit_tracking.apps.AppConfig",
         "edc_model_admin.apps.AppConfig",
         "edc_navbar.apps.AppConfig",
+        "model_admin_app.apps.AppConfig",
     ],
     DASHBOARD_BASE_TEMPLATES={
         "dashboard_template": os.path.join(
@@ -69,7 +76,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
             base_dir, "edc_model_admin", "tests", "templates", "dashboard2.html"
         ),
     },
-    use_test_urls=True,
+    use_test_urls=False,
     add_dashboard_middleware=True,
 ).settings
 

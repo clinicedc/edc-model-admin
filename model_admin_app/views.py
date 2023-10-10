@@ -3,7 +3,7 @@ import os
 from django.conf import settings
 from django.views.generic import ListView, TemplateView
 
-from .models import CrfOne
+from model_admin_app.models import CrfOne
 
 
 class HomeView(TemplateView):

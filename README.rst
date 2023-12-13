@@ -90,8 +90,6 @@ and then declare the model admin class:
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-model-admin.svg
     :target: https://pypi.python.org/pypi/edc-model-admin
 
-
-
 .. |actions| image:: https://github.com/clinicedc/edc-model-admin/actions/workflows/build.yml/badge.svg
   :target: https://github.com/clinicedc/edc-model-admin/actions/workflows/build.yml
 

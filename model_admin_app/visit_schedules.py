@@ -2,7 +2,13 @@ from dateutil.relativedelta import relativedelta
 from edc_visit_schedule.schedule import Schedule
 from edc_visit_schedule.site_visit_schedules import site_visit_schedules
 from edc_visit_schedule.tests import DummyPanel
-from edc_visit_schedule.visit import Crf, FormsCollection, Requisition, Visit
+from edc_visit_schedule.visit import (
+    Crf,
+    CrfCollection,
+    Requisition,
+    RequisitionCollection,
+    Visit,
+)
 from edc_visit_schedule.visit_schedule import VisitSchedule
 
 from .lab_profiles import panel_one, panel_two
@@ -19,7 +25,7 @@ class MockPanel(DummyPanel):
         super().__init__(requisition_model=f"{app_label}.requisition", name=name)
 
 
-crfs0 = FormsCollection(
+crfs0 = CrfCollection(
     Crf(show_order=1, model=f"{app_label}.crfone", required=True),
     Crf(show_order=2, model=f"{app_label}.crftwo", required=True),
     Crf(show_order=3, model=f"{app_label}.crfthree", required=True),
@@ -28,31 +34,31 @@ crfs0 = FormsCollection(
     Crf(show_order=6, model=f"{app_label}.crfsix", required=True),
 )
 
-crfs1 = FormsCollection(
+crfs1 = CrfCollection(
     Crf(show_order=1, model=f"{app_label}.crffour", required=True),
     Crf(show_order=2, model=f"{app_label}.crffive", required=True),
     Crf(show_order=3, model=f"{app_label}.crfsix", required=True),
 )
 
-crfs2 = FormsCollection(Crf(show_order=1, model=f"{app_label}.crfseven", required=True))
+crfs2 = CrfCollection(Crf(show_order=1, model=f"{app_label}.crfseven", required=True))
 
 
-crfs_unscheduled = FormsCollection(
+crfs_unscheduled = CrfCollection(
     Crf(show_order=100, model=f"{app_label}.crftwo", required=True),
     Crf(show_order=200, model=f"{app_label}.crfthree", required=True),
     Crf(show_order=300, model=f"{app_label}.crffive", required=True),
 )
 
-requisitions = FormsCollection(
+requisitions = RequisitionCollection(
     Requisition(show_order=10, panel=panel_one, required=True, additional=False),
     Requisition(show_order=20, panel=panel_two, required=True, additional=False),
 )
 
-requisitions3000 = FormsCollection(
+requisitions3000 = RequisitionCollection(
     Requisition(show_order=10, panel=MockPanel("seven"), required=True, additional=False)
 )
 
-requisitions_unscheduled = FormsCollection(
+requisitions_unscheduled = RequisitionCollection(
     Requisition(show_order=105, panel=MockPanel("one"), required=True, additional=False),
     Requisition(show_order=205, panel=MockPanel("three"), required=True, additional=False),
     Requisition(show_order=305, panel=MockPanel("five"), required=True, additional=False),

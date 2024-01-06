@@ -35,6 +35,7 @@ project_settings = DefaultTestSettings(
         "django_crypto_fields.apps.AppConfig",
         "django_revision.apps.AppConfig",
         "edc_auth.apps.AppConfig",
+        "edc_adverse_event.apps.AppConfig",
         "edc_action_item.apps.AppConfig",
         "edc_appointment.apps.AppConfig",
         "edc_consent.apps.AppConfig",
@@ -61,6 +62,7 @@ project_settings = DefaultTestSettings(
         "edc_visit_tracking.apps.AppConfig",
         "edc_model_admin.apps.AppConfig",
         "edc_navbar.apps.AppConfig",
+        "adverse_event_app",
         "model_admin_app.apps.AppConfig",
     ],
     DASHBOARD_BASE_TEMPLATES={

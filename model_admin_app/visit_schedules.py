@@ -11,6 +11,7 @@ from edc_visit_schedule.visit import (
 )
 from edc_visit_schedule.visit_schedule import VisitSchedule
 
+from .consents import consent_v1
 from .lab_profiles import panel_one, panel_two
 
 app_label = "model_admin_app"
@@ -107,7 +108,7 @@ schedule = Schedule(
     name="schedule",
     onschedule_model=f"{app_label}.onschedule",
     offschedule_model=f"{app_label}.offschedule",
-    consent_model=f"{app_label}.subjectconsent",
+    consent_definitions=[consent_v1],
     appointment_model="edc_appointment.appointment",
 )
 

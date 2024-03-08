@@ -58,6 +58,11 @@ class SubjectConsent(
     dob = models.DateField(default=date(1995, 1, 1))
 
 
+class SubjectConsentV1(SubjectConsent):
+    class Meta:
+        proxy = True
+
+
 class Requisition(RequisitionModelMixin, BaseUuidModel):
     def update_reference_on_save(self):
         pass

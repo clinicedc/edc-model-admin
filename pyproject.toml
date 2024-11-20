@@ -38,25 +38,25 @@ legacy_tox_ini = """
 envlist =
     py{312,313}-dj{51,dev},
     lint
+    pre-commit
 
 isolated_build = true
 
 [gh-actions]
 python =
-    3.12: py312
-    3.13: py313, lint
+    3.12: py312, lint, pre-commit
+    3.13: py313
 
 [gh-actions:env]
 DJANGO =
     5.1: dj51
-    dev: djdev, lint
+    dev: djdev, lint, pre-commit
 
 [testenv]
 deps =
     -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/tox.txt
     -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/test_utils.txt
     -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/edc.txt
-    -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/third_party_dev.txt
     dj51: Django>=5.1,<5.2
     djdev: https://github.com/django/django/tarball/main
 
@@ -71,7 +71,19 @@ commands =
 [testenv:lint]
 deps = -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/lint.txt
 commands =
+    python --version
+    pip --version
+    pip freeze
     isort --profile=black --check --diff .
     black --check --diff .
     flake8 .
+
+[testenv:pre-commit]
+deps = pre-commit
+commands =
+    python --version
+    pip --version
+    pip freeze
+    pre-commit autoupdate
+    pre-commit run --all-files
 """

@@ -85,6 +85,37 @@ and then declare the model admin class:
 
 ``ModelAdminRedirectOnDeleteMixin`` will attempt to get the urlname from the request object using ``post_url_on_delete_name`` as a dictionary key.
 
+Template themes
++++++++++++++++
+
+You can change the default theme colors.
+
+.. code-block:: python
+    EDC_MODEL_ADMIN_CSS_THEME = "edc_indigo"
+
+Options are:
+
+* edc_indigo
+* edc_deep_purple
+* edc_purple
+
+ModelForm Save Delay
+++++++++++++++++++++
+You can configure the save buttons on the CRF and PRN model forms to disable for a few seconds after clicked by the user.
+
+.. code-block:: python
+
+    # settings.py
+    EDC_MODEL_ADMIN_SAVE_DELAY = 3000 # delay for 3 seconds
+
+The default is 0 seconds.
+
+Where internet connections are slow a user may think they did not click the save button and click it again.
+This may lead to multiple submissions of the same form and raise an ``IntegrityError``.
+Save delay disables the button for 3 seonds (or as configured) to minimize the chance of this type of
+error occuring.
+
+See also ``ModelAdminSubjectDashboardMixin`` and the ``change_form.html``.
 
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-model-admin.svg

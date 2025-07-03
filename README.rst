@@ -91,6 +91,7 @@ Template themes
 You can change the default theme colors.
 
 .. code-block:: python
+
     EDC_MODEL_ADMIN_CSS_THEME = "edc_indigo"
 
 Options are:
